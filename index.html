@@ -506,6 +506,13 @@ function porQueNo(){
   return null;
 }
 
+// Avisar apenas carga si este navegador no va a poder, en vez de que se entere
+// recién al apretar el botón (importa sobre todo en el celular).
+(() => {
+  const no = porQueNo();
+  if (no) decir(no, 'mal');
+})();
+
 let cliente = null;
 
 async function imprimir(constructor, queEs){
